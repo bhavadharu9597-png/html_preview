@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Html preview</title>
+    <head>
+    <style>
+        body{
+            margin:0;
+            display:flex;
+            height:100vh;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #editor{
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
+            border-right: 1px solid#ccc;
+            box-shadow: inset -2px 0 5px rgba(0,0,0,0.1);
+        }
+        #html input{
+            width: 100%;
+            height: 100%;
+            padding:10px;
+            font-family: monospace;
+            font-size: 14px;
+            resize: none;
+            padding: 10px;
+            box-sizing: border-box;        
+        }
+        #preview{
+            width: 50%;
+            border: none;
+            height: 100%;
+        }
+        textarea{
+            width: 100%;
+            height: 90%;
+            padding:10px;
+            font-family: monospace;
+            font-size: 14px;
+            resize: none;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="editor">
+        <h3>HTML code</h3>
+        <textarea id="Html input" placeholder="Type your Html code here..."></textarea>
+            </div>
+    <iframe id="preview"></iframe>
+    <script>
+        const input=document.getElementById('Html input');
+        const preview=document.getElementById('preview');
+        input.addEventListener('input',()=>{
+            const code=input.value;
+            preview.srcdoc=code;
+        });
+        input.value="<h1>Hello!</h1>\n<p>Type your Html on the left to see preview here<\p>";
+            preview.srcdoc=input.value;
+            </script>
+</body>
+</html>
